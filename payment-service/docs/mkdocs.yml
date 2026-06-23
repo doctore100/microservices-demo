@@ -26,4 +26,5 @@ extra:
 
 nav:
   - Inicio: index.md
+  - Arquitectura: architecture.md
   - API Reference: api.md

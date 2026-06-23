@@ -20,15 +20,17 @@ Microservicio de inventario construido con **FastAPI** y **Redis**.
 inventory-service/
 ├── app/
 │   ├── main.py          # Endpoints FastAPI
-│   ├── schemas.py       # Modelo Product
+│   ├── schemas.py       # Modelo Product + CRUD async
+│   ├── streams.py       # Publicadores de eventos Redis Streams
+│   ├── consumer.py      # Consumidor de order:events
 │   ├── redis_client.py  # Cliente Redis singleton
-│   ├── consumer.py      # Consumer placeholder
 │   └── config/
 │       └── settings.py  # Config desde .env
 ├── tests/
 │   ├── conftest.py      # Fixtures y mocks
 │   ├── test_schemas.py  # Tests unitarios
-│   └── test_main.py     # Tests de integración
+│   ├── test_main.py     # Tests de integración
+│   └── test_streams.py  # Tests de eventos
 ├── docs/                # Documentación
 ├── .env                 # Variables de entorno
 └── pyproject.toml       # Dependencias
