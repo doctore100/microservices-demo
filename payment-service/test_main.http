@@ -5,7 +5,40 @@ Accept: application/json
 
 ###
 
-GET http://127.0.0.1:8000/hello/User
+GET http://127.0.0.1:8000/orders
+Accept: application/json
+
+###
+
+POST http://127.0.0.1:8000/orders
+Content-Type: application/json
+
+{
+  "product_id": "producto-1",
+  "price": 123.6,
+  "fee": 12.36,
+  "total": 135.96,
+  "quantity": 2,
+  "status": "PENDING"
+}
+
+###
+
+GET http://127.0.0.1:8000/orders/producto-1
+Accept: application/json
+
+###
+
+PUT http://127.0.0.1:8000/orders/producto-1
+Content-Type: application/json
+
+{
+  "status": "COMPLETE"
+}
+
+###
+
+DELETE http://127.0.0.1:8000/orders/producto-1
 Accept: application/json
 
 ###

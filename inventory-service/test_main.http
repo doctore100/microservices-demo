@@ -1,11 +1,23 @@
-# Test your FastAPI endpoints
-
 GET http://127.0.0.1:8000/
-Accept: application/json
-
 ###
 
-GET http://127.0.0.1:8000/hello/User
-Accept: application/json
+GET http://127.0.0.1:8000/products
+###
 
+POST http://127.0.0.1:8000/products
+Content-Type: application/json
+
+{"name": "producto-1", "price": 123.6, "quantity": 23}
+###
+
+GET http://127.0.0.1:8000/products/producto-1
+###
+
+PUT http://127.0.0.1:8000/products/producto-1
+Content-Type: application/json
+
+{"price": 99.9, "quantity": 5}
+###
+
+DELETE http://127.0.0.1:8000/products/producto-1
 ###
