@@ -26,7 +26,12 @@ jobs:
       - run: poetry install
       - run: poetry run ruff check .
       - run: poetry run ruff format --check .
-      - run: echo "REDIS_HOST=localhost\nREDIS_PASSWORD=dummy\nREDIS_PORT=6379" > .env
+      - run: |
+          cat > .env << 'EOF'
+          REDIS_HOST=localhost
+          REDIS_PASSWORD=dummy
+          REDIS_PORT=6379
+          EOF
       - run: poetry run pytest -v
 
   docs:
