@@ -1,0 +1,30 @@
+site_name: Inventory Service - Microservices Demo
+site_author: David Guzman
+dev_addr: 127.0.0.1:4000
+
+theme:
+  name: material
+  language: es
+  palette:
+    - scheme: default
+      toggle:
+        icon: material/weather-night
+        name: Modo oscuro
+    - scheme: slate
+      toggle:
+        icon: material/weather-sunny
+        name: Modo claro
+  features:
+    - navigation.expand
+    - search.suggest
+    - content.code.copy
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/doctore100
+
+nav:
+  - Inicio: index.md
+  - Arquitectura: architecture.md
+  - API Reference: api.md
