@@ -39,8 +39,8 @@ jobs:
       - name: Install mkdocs
         run: pip install mkdocs mkdocs-material
       - name: Build inventory docs
-        run: mkdocs build --strict
+        run: mkdocs build --strict -f docs/mkdocs.yml
         working-directory: inventory-service
       - name: Build payment docs
-        run: mkdocs build --strict
+        run: mkdocs build --strict -f docs/mkdocs.yml
         working-directory: payment-service
