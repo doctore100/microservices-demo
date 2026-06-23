@@ -26,9 +26,11 @@ jobs:
       - run: poetry install
       - run: poetry run ruff check .
       - run: poetry run ruff format --check .
-      - run: printf 'REDIS_HOST=localhost\nREDIS_PASSWORD=dummy\nREDIS_PORT=6379\n' > .env
-      - run: poetry show httpx
       - run: poetry run pytest -v
+        env:
+          REDIS_HOST: localhost
+          REDIS_PORT: "6379"
+          REDIS_PASSWORD: dummy
 
   docs:
     runs-on: ubuntu-latest

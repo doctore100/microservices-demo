@@ -81,6 +81,9 @@ class FakeRedis:
             return 1 if member in s else 0
         return 0
 
+    async def aclose(self):
+        pass
+
 
 @pytest.fixture
 def fake_redis():
