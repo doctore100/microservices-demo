@@ -190,6 +190,34 @@ cd payment-service && poetry run pytest -v
 
 Los tests utilizan `FakeRedis` (simulación en memoria de Redis) y `pytest-asyncio` con `asyncio_mode = auto`. No requieren conexión a Redis real.
 
+## Integración Continua
+
+Cada push o pull request a `master` ejecuta automáticamente un pipeline en **GitHub Actions** con dos jobs paralelos:
+
+### `test` — Calidad y pruebas
+
+Se ejecuta en **matriz paralela** para ambos servicios (`inventory-service`, `payment-service`):
+
+| Paso | Propósito |
+|---|---|
+| `ruff check .` | Linter (D, E, F, I, N, UP, W) |
+| `ruff format --check .` | Verifica formateo automático |
+| `pytest -v` | Ejecuta 57 tests |
+
+Los tests usan `FakeRedis` (simulación en memoria), por lo que no requieren conexión a Redis real.
+
+### `docs` — Documentación
+
+```
+mkdocs build --strict -f docs/mkdocs.yml
+```
+
+Compila la documentación de ambos servicios con `--strict` — cualquier warning rompe el build, garantizando que la documentación nunca se publique con errores.
+
+### Ver resultados
+
+El estado del pipeline se ve en la pestaña **Actions** del repositorio: [github.com/doctore100/microservices-demo/actions](https://github.com/doctore100/microservices-demo/actions)
+
 ## Documentación
 
 Cada servicio incluye su propia documentación generada con MkDocs:
